@@ -1,7 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
 export class CreateMessages1619615656093 implements MigrationInterface {
-
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
@@ -15,6 +14,7 @@ export class CreateMessages1619615656093 implements MigrationInterface {
                     {
                         name: 'admin_id',
                         type: 'uuid',
+                        isNullable: true,
                     },
                     {
                         name: 'user_id',

@@ -9,8 +9,8 @@ import {
   JoinColumn,
 } from 'typeorm'
 
-@Entity('messages')
-class Message {
+@Entity('connections')
+class Connection {
 
   @PrimaryColumn()
   id: string
@@ -19,7 +19,7 @@ class Message {
   admin_id: string
 
   @Column()
-  text: string
+  socket_id: string
 
   @JoinColumn({ name: 'user_id' })
   @ManyToOne(() => User)
@@ -31,6 +31,9 @@ class Message {
   @CreateDateColumn()
   created_at: Date
 
+  @CreateDateColumn()
+  updated_at: Date
+
   constructor() {
     if (!this.id) {
       this.id = uuid()
@@ -38,4 +41,4 @@ class Message {
   }
 }
 
-export { Message }
+export { Connection }
